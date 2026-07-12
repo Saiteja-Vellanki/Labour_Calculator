@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/inName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/inMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile number"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/inPlace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Place / Site"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/inHours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hours worked"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/inRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cost per hour (₹)"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/inPaid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount paid (₹)"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+</ScrollView>
