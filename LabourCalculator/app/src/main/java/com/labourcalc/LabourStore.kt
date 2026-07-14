@@ -6,14 +6,14 @@ import org.json.JSONObject
 
 data class Labour(
     var id: Long = System.currentTimeMillis(),
-    var name: String = "",
-    var mobile: String = "",
+    var date: String = "",
     var place: String = "",
-    var hours: Double = 0.0,
-    var ratePerHour: Double = 0.0,
+    var workers: Int = 0,
+    var costPerWorker: Double = 0.0,
+    var note: String = "",
     var amountPaid: Double = 0.0
 ) {
-    val total: Double get() = hours * ratePerHour
+    val total: Double get() = workers * costPerWorker
     val balance: Double get() = total - amountPaid
     val isPaid: Boolean get() = balance <= 0.009 && total > 0
 }
@@ -32,11 +32,11 @@ object LabourStore {
             list.add(
                 Labour(
                     id = o.optLong("id"),
-                    name = o.optString("name"),
-                    mobile = o.optString("mobile"),
+                    date = o.optString("date"),
                     place = o.optString("place"),
-                    hours = o.optDouble("hours", 0.0),
-                    ratePerHour = o.optDouble("rate", 0.0),
+                    workers = o.optInt("workers", 0),
+                    costPerWorker = o.optDouble("cost", 0.0),
+                    note = o.optString("note"),
                     amountPaid = o.optDouble("paid", 0.0)
                 )
             )
@@ -50,11 +50,11 @@ object LabourStore {
             arr.put(
                 JSONObject()
                     .put("id", l.id)
-                    .put("name", l.name)
-                    .put("mobile", l.mobile)
+                    .put("date", l.date)
                     .put("place", l.place)
-                    .put("hours", l.hours)
-                    .put("rate", l.ratePerHour)
+                    .put("workers", l.workers)
+                    .put("cost", l.costPerWorker)
+                    .put("note", l.note)
                     .put("paid", l.amountPaid)
             )
         }
