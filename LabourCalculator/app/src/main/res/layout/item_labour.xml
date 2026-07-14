@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tvName"
+                    android:id="@+id/tvPlace"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tvDetails"
+                android:id="@+id/tvDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -63,38 +63,80 @@
                 android:textColor="#555555" />
 
             <TextView
-                android:id="@+id/tvAmounts"
+                android:id="@+id/tvCalc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:textSize="14sp"
+                android:layout_marginTop="2dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#1565C0" />
+                android:textColor="#E65100" />
+
+            <TextView
+                android:id="@+id/tvNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="13sp"
+                android:textStyle="italic"
+                android:textColor="#666666" />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp">
+                android:layout_marginTop="8dp">
 
-                <Button
-                    android:id="@+id/btnMarkPaid"
-                    style="?android:attr/buttonBarButtonStyle"
+                <TextView
+                    android:id="@+id/tvTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="✔ Mark Paid"
-                    android:textColor="#2E7D32"
-                    android:textStyle="bold" />
+                    android:background="@drawable/bg_chip_blue"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
 
-                <Button
-                    android:id="@+id/btnCall"
-                    style="?android:attr/buttonBarButtonStyle"
+                <TextView
+                    android:id="@+id/tvPaid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="📞 Call"
-                    android:textColor="#1565C0"
-                    android:textStyle="bold" />
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/bg_status_paid"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/bg_status_due"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btnMarkPaid"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="✔ Mark Paid"
+                android:textColor="#2E7D32"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
