@@ -17,7 +17,7 @@ class ReminderWorker(context: Context, params: WorkerParameters) : Worker(contex
         if (unpaid.isEmpty()) return Result.success()
 
         val totalDue = unpaid.sumOf { it.balance }
-        val names = unpaid.joinToString(", ") { "${it.name} (₹${"%.0f".format(it.balance)})" }
+        val names = unpaid.joinToString(", ") { "${it.place} ${it.date} (₹${"%.0f".format(it.balance)})" }
 
         val nm = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
