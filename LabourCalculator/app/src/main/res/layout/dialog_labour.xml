@@ -10,39 +10,41 @@
         android:padding="20dp">
 
         <EditText
-            android:id="@+id/inName"
+            android:id="@+id/inDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/inMobile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mobile number"
-            android:inputType="phone" />
+            android:hint="Date (tap to pick) *"
+            android:focusable="false"
+            android:clickable="true"
+            android:inputType="none" />
 
         <EditText
             android:id="@+id/inPlace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Place / Site"
+            android:hint="Place / Site *"
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/inHours"
+            android:id="@+id/inWorkers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Hours worked"
+            android:hint="No. of workers"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/inCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cost per worker (₹)"
             android:inputType="numberDecimal" />
 
         <EditText
-            android:id="@+id/inRate"
+            android:id="@+id/inNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cost per hour (₹)"
-            android:inputType="numberDecimal" />
+            android:hint="Note"
+            android:inputType="textCapSentences" />
 
         <EditText
             android:id="@+id/inPaid"
