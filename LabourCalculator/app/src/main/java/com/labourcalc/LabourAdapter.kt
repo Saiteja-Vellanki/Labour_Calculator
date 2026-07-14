@@ -11,17 +11,19 @@ class LabourAdapter(
     private val items: List<Labour>,
     private val onEdit: (Labour) -> Unit,
     private val onMarkPaid: (Labour) -> Unit,
-    private val onCall: (Labour) -> Unit,
     private val onDelete: (Labour) -> Unit
 ) : RecyclerView.Adapter<LabourAdapter.VH>() {
 
     class VH(v: View) : RecyclerView.ViewHolder(v) {
-        val name: TextView = v.findViewById(R.id.tvName)
-        val details: TextView = v.findViewById(R.id.tvDetails)
-        val amounts: TextView = v.findViewById(R.id.tvAmounts)
+        val place: TextView = v.findViewById(R.id.tvPlace)
+        val date: TextView = v.findViewById(R.id.tvDate)
+        val calc: TextView = v.findViewById(R.id.tvCalc)
+        val note: TextView = v.findViewById(R.id.tvNote)
+        val total: TextView = v.findViewById(R.id.tvTotal)
+        val paid: TextView = v.findViewById(R.id.tvPaid)
+        val balance: TextView = v.findViewById(R.id.tvBalance)
         val status: TextView = v.findViewById(R.id.tvStatus)
         val btnPaid: Button = v.findViewById(R.id.btnMarkPaid)
-        val btnCall: Button = v.findViewById(R.id.btnCall)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH =
@@ -31,10 +33,20 @@ class LabourAdapter(
 
     override fun onBindViewHolder(h: VH, pos: Int) {
         val l = items[pos]
-        h.name.text = l.name
-        h.details.text = "${l.place}  •  ${l.mobile}\n${l.hours} hrs × ₹${"%.2f".format(l.ratePerHour)}/hr"
-        h.amounts.text =
-            "Total: ₹${"%.2f".format(l.total)}   Paid: ₹${"%.2f".format(l.amountPaid)}   Balance: ₹${"%.2f".format(l.balance)}"
+        h.place.text = l.place
+        h.date.text = "📅 ${l.date}"
+        h.calc.text = "👷 ${l.workers} × ₹${"%.0f".format(l.costPerWorker)}/-"
+
+        if (l.note.isNotBlank()) {
+            h.note.visibility = View.VISIBLE
+            h.note.text = "📝 ${l.note}"
+        } else {
+            h.note.visibility = View.GONE
+        }
+
+        h.total.text = "Total ₹${"%.0f".format(l.total)}"
+        h.paid.text = "Paid ₹${"%.0f".format(l.amountPaid)}"
+        h.balance.text = "Bal ₹${"%.0f".format(l.balance)}"
 
         if (l.isPaid) {
             h.status.text = "PAID ✔"
@@ -49,6 +61,5 @@ class LabourAdapter(
         h.itemView.setOnClickListener { onEdit(l) }
         h.itemView.setOnLongClickListener { onDelete(l); true }
         h.btnPaid.setOnClickListener { onMarkPaid(l) }
-        h.btnCall.setOnClickListener { onCall(l) }
     }
 }
